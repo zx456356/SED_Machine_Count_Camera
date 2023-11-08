@@ -1,0 +1,319 @@
+﻿#include "visionlineitem.h"
+#include <QDebug>
+#include <QPainterPath>
+
+#include "../control/color.h"
+
+VisionLineItem::VisionLineItem(bool bEdit,qreal penWidth, bool color_enable, QColor borderColor, QColor selectedColor, QColor brushColor, VisionItem *parent) : VisionItem(parent)
+{
+    if(color_enable){
+        m_borderColor = borderColor;
+    }else{
+        m_borderColor = borderColor;
+    }
+    m_brushColor = brushColor;
+    m_selectedColor = selectedColor;
+
+    m_penColor = borderColor;
+    m_penWidth = penWidth;
+    m_bEdit = bEdit;
+    m_type = ItemType::Paint_Line;
+
+    if(m_bEdit){
+        setSelectedStatus(true);
+    }else{
+        setSelectedStatus(false);
+    }
+
+}
+
+VisionLineItem::~VisionLineItem()
+{
+
+}
+
+void VisionLineItem::setLine(QPointF p1, QPointF p2)
+{
+    m_pointF1 = p1;
+    m_pointF2 = p2;
+
+    if(p1.x() < p2.x()){
+        m_x = p1.x();
+    }else{
+        m_x = p2.x();
+    }
+
+    if(p1.y() < p2.y()){
+        m_y = p1.y();
+    }else{
+        m_y = p2.y();
+    }
+    m_width = fabs(p1.x()-p2.x());
+    m_height = fabs(p1.y()-p2.y());
+
+    this->setPos(m_x,m_y);
+
+    initMiniRect();
+}
+
+void VisionLineItem::setPenWidth(qreal penWidth)
+{
+    m_penWidth = penWidth;
+}
+
+void VisionLineItem::setPenColor(QColor color)
+{
+    m_penColor = color;
+}
+
+bool VisionLineItem::getPosInArea(qreal x, qreal y)
+{
+
+    qreal A = m_pointF2.y() - m_pointF1.y();
+    qreal B = m_pointF1.x() - m_pointF2.x();
+    qreal C = m_pointF2.x()*m_pointF1.y() - m_pointF1.x()*m_pointF2.y();
+
+    qreal l = fabs(A*x + B*y + C)/sqrt(A*A+B*B);
+    if( l < 5 || this->cursor().shape() == Qt::SizeAllCursor){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+QVector<QPointF> VisionLineItem::getPoints(){
+    QVector<QPointF> vec_p;
+    vec_p.append(m_pointF1);
+    vec_p.append(m_pointF2);
+    return vec_p;
+}
+
+VGSegment2D VisionLineItem::getData(){
+    //转换数据
+    Coordinate_Struct stru;
+    stru.angle = 0;
+    stru.dx = 0;
+    stru.dy = 0;
+    stru.scale = 1;
+
+    QPointF pointF1 = m_pointF1;
+    pointF1 = convert_coordinate(m_itemCoordinate,stru,pointF1);
+    QPointF pointF2 = m_pointF2;
+    pointF2 = convert_coordinate(m_itemCoordinate,stru,pointF2);
+
+    VGSegment2D segment2D;
+    segment2D.optional = VG_ENABLE;
+    VGPoint2D p1,p2;
+    p1.x = pointF1.x();
+    p1.y = pointF1.y();
+    p2.x = pointF2.x();
+    p2.y = pointF2.y();
+    segment2D.point1 = p1;
+    segment2D.point2 = p2;
+    return segment2D;
+}
+
+void VisionLineItem::setCoordinate_rela(Coordinate_Struct stru)
+{
+    m_pointF1 = convert_coordinate(m_itemCoordinate,stru,m_pointF1);
+    m_pointF2 = convert_coordinate(m_itemCoordinate,stru,m_pointF2);
+
+    VisionItem::setCoordinate_rela(stru);
+    updateRect(m_pointF1,m_pointF2);
+    this->scene()->update();
+}
+
+QRectF VisionLineItem::boundingRect() const
+{
+    if(this->scene()->views().at(0)->matrix().m22() > 1){
+        return QRectF(-5*(1/this->scene()->views().at(0)->matrix().m22()),-5*(1/this->scene()->views().at(0)->matrix().m22()),m_width+10*(1/this->scene()->views().at(0)->matrix().m22()),m_height+10*(1/this->scene()->views().at(0)->matrix().m22()));
+    }else{
+        return QRectF(-5*(1/this->scene()->views().at(0)->matrix().m22()),-5*(1/this->scene()->views().at(0)->matrix().m22()),m_width+10*(1/this->scene()->views().at(0)->matrix().m22()),m_height+10*(1/this->scene()->views().at(0)->matrix().m22()));
+    }
+}
+
+void VisionLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    Q_UNUSED(widget)
+    Q_UNUSED(option)
+
+    painter->setRenderHint(QPainter::Antialiasing, true);
+
+    if(option->state & QStyle::State_Selected){
+        painter->setPen(QPen(QBrush(m_selectedColor),g_penWidth*(1/this->scene()->views().at(0)->matrix().m22())));
+
+    }else{
+        painter->setPen(QPen(QBrush(m_borderColor),g_penWidth*(1/this->scene()->views().at(0)->matrix().m22())));
+
+    }
+
+    painter->drawLine(m_pointF1-QPointF(m_x,m_y),m_pointF2-QPointF(m_x,m_y));
+
+
+    //绘制箭头
+    qreal alph = atan2(m_pointF2.y()-m_pointF1.y(), m_pointF2.x()-m_pointF1.x());
+    painter->translate(m_pointF2-QPointF(m_x,m_y));
+
+    qreal angle = (alph*180)/3.14159;
+    qreal len = 2*(1/this->scene()->views().at(0)->matrix().m22());
+//    qDebug()<<angle;
+    painter->rotate(angle);
+    painter->drawLine(QPointF(-(2*len),-len),QPointF(0,0));
+    painter->drawLine(QPointF(-(2*len),+len),QPointF(0,0));
+
+    if(!m_bEdit)
+        return;
+
+    //绘制编辑框
+    if(option->state & QStyle::State_Selected){
+        m_miniRect1->show();
+        m_miniRect2->show();
+        m_bSelected = true;
+        setSelectedStatus(m_bSelected);
+    }else{
+        m_miniRect1->hide();
+        m_miniRect2->hide();
+        m_bSelected = false;
+        setSelectedStatus(m_bSelected);
+    }
+}
+
+void VisionLineItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+
+    if(!m_bEdit)
+        return;
+
+    //            A = Y2 - Y1
+    //            B = X1 - X2
+    //            C = X2*Y1 - X1*Y2
+    QGraphicsItem::mousePressEvent(event);
+
+    if(m_iIndex != -1)
+        return;
+
+    qreal A = m_pointF2.y() - m_pointF1.y();
+    qreal B = m_pointF1.x() - m_pointF2.x();
+    qreal C = m_pointF2.x()*m_pointF1.y() - m_pointF1.x()*m_pointF2.y();
+    m_lastPointF = event->scenePos();
+    qreal l = fabs(A*event->scenePos().x() + B*event->scenePos().y() + C)/sqrt(A*A+B*B);
+
+//    qDebug()<<"l:: "<<l<<A<<B<<C;
+    if(l < 5 || this->cursor().shape() == Qt::SizeAllCursor){
+//        qDebug()<<"in area";
+        setSelectedStatus(true);
+    }else{
+//        qDebug()<<"out area";
+        setSelectedStatus(false);
+    }
+    this->scene()->update();
+}
+
+void VisionLineItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+{
+    if(!m_bEdit)
+        return;
+
+    if(!m_bSelected)
+        return;
+
+//    QGraphicsItem::mouseMoveEvent(event);
+    QPointF disPointF = event->scenePos()-m_lastPointF;
+    m_lastPointF = event->scenePos();
+    if(m_iIndex == 1){
+        m_pointF1 = event->scenePos();
+    }else if(m_iIndex == 2){
+        m_pointF2 = event->scenePos();
+    }else{
+        //移动整体
+        m_pointF1 = m_pointF1 + disPointF;
+        m_pointF2 = m_pointF2 + disPointF;
+    }
+    updateRect(m_pointF1,m_pointF2);
+    emit signalChanged(this);
+    this->scene()->update();
+}
+
+void VisionLineItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+
+    if(!m_bEdit)
+        return;
+
+    if(m_iIndex != -1)
+        return;
+
+    qreal A = m_pointF2.y() - m_pointF1.y();
+    qreal B = m_pointF1.x() - m_pointF2.x();
+    qreal C = m_pointF2.x()*m_pointF1.y() - m_pointF1.x()*m_pointF2.y();
+
+    qreal l = fabs(A*event->scenePos().x() + B*event->scenePos().y() + C)/sqrt(A*A+B*B);
+    if( l < 5 || this->cursor().shape() == Qt::SizeAllCursor){
+        emit signal_clicked(this,true,true,event->scenePos().x(),event->scenePos().y());
+        QGraphicsItem::mouseReleaseEvent(event);
+    }else{
+        emit signal_clicked(this,true,false,event->scenePos().x(),event->scenePos().y());
+        return;
+    }
+}
+
+void VisionLineItem::initMiniRect()
+{
+    if(m_miniRect1 == NULL){
+        m_miniRect1 = new MiniRect(m_pointF1.x()-5-m_x,m_pointF1.y()-5-m_y,10,10,m_borderColor,m_selectedColor,m_brushColor,this);
+        m_miniRect1->setIndex(1);
+        connect(m_miniRect1,SIGNAL(signalIndex(int)),this,SLOT(slotMiniRectIndex(int)));
+        m_miniRect1->hide();
+    }else{
+        m_miniRect1->setRect(m_pointF1.x()-5-m_x,m_pointF1.y()-5-m_y,10,10);
+    }
+
+    if(m_miniRect2 == NULL){
+        m_miniRect2 = new MiniRect(m_pointF2.x()-5-m_x,m_pointF2.y()-5-m_y,10,10,m_borderColor,m_selectedColor,m_brushColor,this);
+        m_miniRect2->setIndex(2);
+        connect(m_miniRect2,SIGNAL(signalIndex(int)),this,SLOT(slotMiniRectIndex(int)));
+        m_miniRect2->hide();
+    }else{
+        m_miniRect2->setRect(m_pointF2.x()-5-m_x,m_pointF2.y()-5-m_y,10,10);
+    }
+
+    updateRect(m_pointF1,m_pointF2);
+}
+
+void VisionLineItem::updateRect(QPointF p1, QPointF p2)
+{
+    if(p1.x() < p2.x()){
+        m_x = p1.x();
+    }else{
+        m_x = p2.x();
+    }
+
+    if(p1.y() < p2.y()){
+        m_y = p1.y();
+    }else{
+        m_y = p2.y();
+    }
+    m_width = fabs(p1.x()-p2.x());
+    m_height = fabs(p1.y()-p2.y());
+    this->setPos(m_x,m_y);
+    m_miniRect1->setPos(m_pointF1.x()-5-m_x,m_pointF1.y()-5-m_y);
+    m_miniRect2->setPos(m_pointF2.x()-5-m_x,m_pointF2.y()-5-m_y);
+
+}
+
+void VisionLineItem::slotMiniRectIndex(int index)
+{
+    if(index == 1){
+        //移动点1
+        m_iIndex = 1;
+        this->scene()->views().at(0)->setCursor(Qt::SizeAllCursor);
+    }else if(index == 2){
+        //移动点2
+        m_iIndex = 2;
+        this->scene()->views().at(0)->setCursor(Qt::SizeAllCursor);
+    }else{
+        //恢复正常
+        m_iIndex = -1;
+        this->scene()->views().at(0)->setCursor(viewCursor);
+    }
+}

@@ -1,0 +1,4881 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingWidget</class>
+ <widget class="QWidget" name="SettingWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1366</width>
+    <height>789</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow#MainWindow{\nborder-image:url(./backgrandpic.png);\n}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" columnstretch="1,3">
+   <item row="1" column="1">
+    <layout class="QHBoxLayout" name="horizontalLayout_16">
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <spacer name="horizontalSpacer_22">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="ExitBtn">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#ExitBtn{
+	min-width: 150px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#ExitBtn:hover{	
+	background-color: rgb(170, 0, 0);
+}</string>
+       </property>
+       <property name="text">
+        <string>退出系统</string>
+       </property>
+       <property name="icon">
+        <iconset resource="ico.qrc">
+         <normaloff>:/ico/exit1.png</normaloff>:/ico/exit1.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="1">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>41</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>20</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0, 0, 0, 0);</string>
+     </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="elideMode">
+      <enum>Qt::ElideNone</enum>
+     </property>
+     <property name="usesScrollButtons">
+      <bool>false</bool>
+     </property>
+     <property name="documentMode">
+      <bool>false</bool>
+     </property>
+     <property name="tabsClosable">
+      <bool>false</bool>
+     </property>
+     <property name="movable">
+      <bool>false</bool>
+     </property>
+     <property name="tabBarAutoHide">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="identifyParameters">
+      <attribute name="title">
+       <string>识别参数</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0" colspan="2">
+        <widget class="QFrame" name="frame_6">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>400</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <property name="leftMargin">
+           <number>21</number>
+          </property>
+          <property name="topMargin">
+           <number>9</number>
+          </property>
+          <property name="rightMargin">
+           <number>21</number>
+          </property>
+          <property name="bottomMargin">
+           <number>20</number>
+          </property>
+          <property name="horizontalSpacing">
+           <number>12</number>
+          </property>
+          <property name="verticalSpacing">
+           <number>10</number>
+          </property>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_26">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>预处理方法</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="UnitSpainBox" name="minArea">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>999999</number>
+            </property>
+            <property name="value">
+             <number>100</number>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="3">
+           <widget class="UnitSpainBox" name="maxRadius">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>999999</number>
+            </property>
+            <property name="value">
+             <number>45</number>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QLabel" name="label_33">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>算子尺寸</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_25">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>残料面积（范围内剔除）</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>&lt;--&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="UnitSpainBox" name="flawAreaMin">
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>&lt;--&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="3">
+           <widget class="UnitSpainBox" name="flawAreaMax">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="UnitSpainBox" name="minRadius">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>9999</number>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_11">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>填充度设置</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="preProcessCombox">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox{
+border: 1px solid #1c7ed6;
+border-radius: 2px;
+background-color: white;
+}
+
+QComboBox:drop-down{
+subcontrol-origin:border;
+subcontrol-position:right;
+width: 25px;
+height: 25px;
+}
+
+QComboBox:down-arrow{
+background-image:url(:/ico/hmi/add_down.png);
+}
+
+QComboBox QAbstractItemview{
+background:rgba(255,255,255,1);
+border:1px solid rgba(228,228,228,1);
+border-radius:Opx Opx 5px 5px;
+font-size:14px;
+out1ine:gpx;//去虚线
+}
+
+QComboBox QAbstractItemview:item{
+height:36px;
+c010r:#666666;
+padding-left:9px;
+background-color #FFFFFF;
+}
+
+QComboBox QAbstractItemView:item:hover{/
+background-color #409CE1;
+color:#ffffff;
+}
+
+QComboBox QAbstractItemview:item:selected{//
+background-color #409CE1;
+color:#ffffff;
+}
+
+QComboBox:on{
+padding-top:3px;
+padding-left:4px;
+}
+
+QComboBox:down-arrow:on{
+top:1px;
+left:1px;
+}</string>
+            </property>
+            <property name="editable">
+             <bool>true</bool>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <item>
+             <property name="text">
+              <string>开运算_圆</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>开运算_方</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>闭运算_圆</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>闭运算_方</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_14">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>单瓶数量</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="UnitSpainBox" name="minThreshold">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="value">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="UnitSpainBox" name="operatorSize">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>100</number>
+            </property>
+            <property name="value">
+             <number>1</number>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="3">
+           <widget class="QDoubleSpinBox" name="maxFill">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QDoubleSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QDoubleSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QDoubleSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QDoubleSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="value">
+             <double>1.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="2">
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>&lt;--&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>阈值设置</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>&lt;--&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QDoubleSpinBox" name="minFill">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QDoubleSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QDoubleSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QDoubleSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QDoubleSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="3">
+           <widget class="UnitSpainBox" name="flawRadiusMax">
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="UnitSpainBox" name="maxThreshold">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="value">
+             <number>150</number>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="3">
+           <widget class="UnitSpainBox" name="maxArea">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>999999</number>
+            </property>
+            <property name="value">
+             <number>99999</number>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="label_32">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>残料半径（范围内剔除）</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="UnitSpainBox" name="singleButtleQuantity">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>10000</number>
+            </property>
+            <property name="value">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="2">
+           <widget class="QLabel" name="label_47">
+            <property name="text">
+             <string>&lt;--&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="UnitSpainBox" name="flawRadiusMin">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>28</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="2">
+           <widget class="QLabel" name="label_48">
+            <property name="text">
+             <string>&lt;--&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_7">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>面积设置（范围外不计数）</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>半径设置（范围外不计数）</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="label_51">
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="statusTip">
+             <string>剩余多少颗料时进行叠料剔除</string>
+            </property>
+            <property name="text">
+             <string>余料警戒</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="UnitSpainBox" name="restWarnBox">
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="maximum">
+             <number>1000</number>
+            </property>
+            <property name="value">
+             <number>8</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="cameraParameters">
+      <attribute name="title">
+       <string>相机参数</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0">
+        <widget class="QFrame" name="frame">
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="1,1,1,8">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>行频：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_9">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="lineRate">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 20px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 20px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="maximum">
+               <number>1000000</number>
+              </property>
+              <property name="singleStep">
+               <number>100</number>
+              </property>
+              <property name="value">
+               <number>5000</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1,1,8">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>增益：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="gainRaw">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 20px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 20px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,1,8">
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>曝光时间：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="expousetime">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QDoubleSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+}
+
+QDoubleSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 20px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QDoubleSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QDoubleSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 20px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QDoubleSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="maximum">
+               <double>10000.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QFrame" name="frame_2">
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="1" column="2">
+           <layout class="QHBoxLayout" name="horizontalLayout_12">
+            <item>
+             <widget class="QLabel" name="label_19">
+              <property name="minimumSize">
+               <size>
+                <width>75</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>单瓶数量地址：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_14">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_22">
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>D</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="singleNumAddr">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 20px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 20px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="maximum">
+               <number>1000000</number>
+              </property>
+              <property name="singleStep">
+               <number>100</number>
+              </property>
+              <property name="value">
+               <number>2</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="2">
+           <layout class="QHBoxLayout" name="horizontalLayout_13">
+            <item>
+             <widget class="QLabel" name="label_20">
+              <property name="minimumSize">
+               <size>
+                <width>75</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>插料坐标Y地址：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_15">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_24">
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>D</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="insertCoordYAddr">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 20px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 20px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="maximum">
+               <number>1000000</number>
+              </property>
+              <property name="singleStep">
+               <number>100</number>
+              </property>
+              <property name="value">
+               <number>200</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="1">
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <item>
+             <widget class="QLabel" name="label_16">
+              <property name="minimumSize">
+               <size>
+                <width>75</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>插料坐标X地址：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_11">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_23">
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>D</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="insertCoordXAddr">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 20px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 20px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="maximum">
+               <number>1000000</number>
+              </property>
+              <property name="singleStep">
+               <number>100</number>
+              </property>
+              <property name="value">
+               <number>100</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="3" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <item>
+             <widget class="QLabel" name="label_17">
+              <property name="minimumSize">
+               <size>
+                <width>75</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>满瓶信号地址：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_12">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_27">
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>M</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="fullSignalAddr">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 20px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 20px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="maximum">
+               <number>1000000</number>
+              </property>
+              <property name="singleStep">
+               <number>100</number>
+              </property>
+              <property name="value">
+               <number>100</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <item>
+             <widget class="QLabel" name="label_15">
+              <property name="minimumSize">
+               <size>
+                <width>75</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>实时数量地址：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_10">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_18">
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>D</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="currentNumAddr">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 20px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 20px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="maximum">
+               <number>1000000</number>
+              </property>
+              <property name="singleStep">
+               <number>100</number>
+              </property>
+              <property name="value">
+               <number>1</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="3" column="2">
+           <layout class="QHBoxLayout" name="horizontalLayout_14">
+            <item>
+             <widget class="QLabel" name="label_21">
+              <property name="minimumSize">
+               <size>
+                <width>75</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>瑕疵信号地址：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_16">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_28">
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>M</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="flawSignalAddr">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 20px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 20px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="maximum">
+               <number>1000000</number>
+              </property>
+              <property name="singleStep">
+               <number>100</number>
+              </property>
+              <property name="value">
+               <number>610</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_13">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>PLC IP:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="ipAddress">
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border: 1px solid #1c7ed6;
+border-radius: 4px;
+background: white;</string>
+              </property>
+              <property name="text">
+               <string>192.168.6.6</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="3">
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>手动控制</string>
+      </attribute>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>202</width>
+         <height>491</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QPushButton" name="beltBtn">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#beltBtn{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#beltBtn:hover{	
+	background-color: gray;
+}
+
+QPushButton#beltBtn::checked{	
+	background-color: #4dabf7;
+}
+</string>
+          </property>
+          <property name="text">
+           <string>传送带</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="blockBtn">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#blockBtn{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#blockBtn:hover{	
+	background-color: gray;
+}
+QPushButton#blockBtn::checked{	
+	background-color: #4dabf7;
+}</string>
+          </property>
+          <property name="text">
+           <string> 挡瓶气缸</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="removeBtn">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#removeBtn{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#removeBtn:hover{	
+	background-color: gray;
+}
+QPushButton#removeBtn::checked{	
+	background-color: #4dabf7;
+}</string>
+          </property>
+          <property name="text">
+           <string>剔除气缸</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="funnelBtn">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#funnelBtn{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#funnelBtn:hover{	
+	background-color: gray;
+}
+QPushButton#funnelBtn::checked{	
+	background-color: #4dabf7;
+}</string>
+          </property>
+          <property name="text">
+           <string>漏斗气缸</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="bufferBtn">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#bufferBtn{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#bufferBtn:hover{	
+	background-color: gray;
+}
+QPushButton#bufferBtn::checked{	
+	background-color: #4dabf7;
+}</string>
+          </property>
+          <property name="text">
+           <string>挡板气缸</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>0</y>
+         <width>481</width>
+         <height>501</height>
+        </rect>
+       </property>
+       <layout class="QFormLayout" name="formLayout">
+        <property name="fieldGrowthPolicy">
+         <enum>QFormLayout::FieldsStayAtSizeHint</enum>
+        </property>
+        <property name="labelAlignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="formAlignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="bufferBtn_1">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#bufferBtn_1{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#bufferBtn_1:hover{	
+	background-color: gray;
+}
+QPushButton#bufferBtn_1::checked{	
+	background-color: #4dabf7;
+}</string>
+          </property>
+          <property name="text">
+           <string>插板_1</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="bufferBtn_5">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#bufferBtn_5{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#bufferBtn_5:hover{	
+	background-color: gray;
+}
+QPushButton#bufferBtn_5::checked{	
+	background-color: #4dabf7;
+}</string>
+          </property>
+          <property name="text">
+           <string>插板_5</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="bufferBtn_2">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#bufferBtn_2{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#bufferBtn_2:hover{	
+	background-color: gray;
+}
+QPushButton#bufferBtn_2::checked{	
+	background-color: #4dabf7;
+}</string>
+          </property>
+          <property name="text">
+           <string>插板_2</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="bufferBtn_6">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#bufferBtn_6{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#bufferBtn_6:hover{	
+	background-color: gray;
+}
+QPushButton#bufferBtn_6::checked{	
+	background-color: #4dabf7;
+}</string>
+          </property>
+          <property name="text">
+           <string>插板_6</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="bufferBtn_3">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#bufferBtn_3{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#bufferBtn_3:hover{	
+	background-color: gray;
+}
+QPushButton#bufferBtn_3::checked{	
+	background-color: #4dabf7;
+}</string>
+          </property>
+          <property name="text">
+           <string>插板_3</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="bufferBtn_7">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#bufferBtn_7{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#bufferBtn_7:hover{	
+	background-color: gray;
+}
+QPushButton#bufferBtn_7::checked{	
+	background-color: #4dabf7;
+}</string>
+          </property>
+          <property name="text">
+           <string>插板_7</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="bufferBtn_4">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#bufferBtn_4{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#bufferBtn_4:hover{	
+	background-color: gray;
+}
+QPushButton#bufferBtn_4::checked{	
+	background-color: #4dabf7;
+}</string>
+          </property>
+          <property name="text">
+           <string>插板_4</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QPushButton" name="bufferBtn_8">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#bufferBtn_8{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#bufferBtn_8:hover{	
+	background-color: gray;
+}
+QPushButton#bufferBtn_8::checked{	
+	background-color: #4dabf7;
+}</string>
+          </property>
+          <property name="text">
+           <string>插板_8</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="verticalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>0</y>
+         <width>202</width>
+         <height>501</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QPushButton" name="shackerBtn">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#shackerBtn{
+	min-width: 200px;
+	min-height: 80px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#shackerBtn:hover{	
+	background-color: gray;
+}
+QPushButton#shackerBtn::checked{	
+	background-color: #4dabf7;
+}</string>
+          </property>
+          <property name="text">
+           <string>振动盘</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>电气参数</string>
+      </attribute>
+      <widget class="QWidget" name="formLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>0</y>
+         <width>411</width>
+         <height>461</height>
+        </rect>
+       </property>
+       <layout class="QFormLayout" name="formLayout_2">
+        <property name="fieldGrowthPolicy">
+         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+        </property>
+        <property name="rowWrapPolicy">
+         <enum>QFormLayout::DontWrapRows</enum>
+        </property>
+        <property name="labelAlignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="formAlignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="horizontalSpacing">
+         <number>6</number>
+        </property>
+        <property name="verticalSpacing">
+         <number>18</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_34">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>卡料时间</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="UnitSpainBox" name="cutTimeBox">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>10000</number>
+          </property>
+          <property name="value">
+           <number>35</number>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_35">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>落料延时</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="UnitSpainBox" name="fallTimeBox">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>10000</number>
+          </property>
+          <property name="value">
+           <number>300</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_49">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>装瓶时间</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="UnitSpainBox" name="loadTimeBox">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>99999</number>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_36">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>换瓶时间</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="UnitSpainBox" name="bufferTimeBox">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>10000</number>
+          </property>
+          <property name="value">
+           <number>100</number>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_39">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>  瑕疵剔除时间</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="UnitSpainBox" name="removeOutBox">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>10000</number>
+          </property>
+          <property name="value">
+           <number>1450</number>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_40">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>  瑕疵剔除延时</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="UnitSpainBox" name="removeBackBox">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>10000</number>
+          </property>
+          <property name="value">
+           <number>250</number>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="UnitSpainBox" name="shakeTimeBox">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>999999</number>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_37">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>抖动时间</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="UnitSpainBox" name="blockTwoBox">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>99999</number>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="label_38">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>2号挡瓶时间</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="formLayoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>0</y>
+         <width>431</width>
+         <height>461</height>
+        </rect>
+       </property>
+       <layout class="QFormLayout" name="formLayout_3">
+        <property name="fieldGrowthPolicy">
+         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+        </property>
+        <property name="rowWrapPolicy">
+         <enum>QFormLayout::DontWrapRows</enum>
+        </property>
+        <property name="labelAlignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="formAlignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="horizontalSpacing">
+         <number>6</number>
+        </property>
+        <property name="verticalSpacing">
+         <number>18</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_41">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>振动盘1电压设定</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="UnitSpainBox" name="shaker1VBox">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>150</number>
+          </property>
+          <property name="value">
+           <number>80</number>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_42">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>振动盘1频率设定</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="UnitSpainBox" name="shaker1HzBox">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
+          <property name="value">
+           <number>100</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_43">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>振动盘2电压设定</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="UnitSpainBox" name="shaker2VBox">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>150</number>
+          </property>
+          <property name="value">
+           <number>50</number>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_44">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>振动盘2频率设定</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="UnitSpainBox" name="shaker2HzBox">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
+          <property name="value">
+           <number>100</number>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_45">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>振动盘3电压设定</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="UnitSpainBox" name="shaker3VBox">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>150</number>
+          </property>
+          <property name="value">
+           <number>50</number>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_46">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>振动盘3频率设定</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="UnitSpainBox" name="shaker3HzBox">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
+          <property name="value">
+           <number>100</number>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_50">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string> 振动盘停止百分比</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="UnitSpainBox" name="stopRateBox">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>41</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 0px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 0px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="imageParameters">
+      <attribute name="title">
+       <string>其它参数</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_7" rowstretch="2,1" columnstretch="0">
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="title">
+          <string>图片保存</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_8">
+          <item row="2" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QLabel" name="label_31">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>保存天数</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="saveImgDays">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>300</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border: 1px solid #1c7ed6;
+border-radius: 4px;
+background: white;</string>
+              </property>
+              <property name="text">
+               <string>3</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_18">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_30">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>保存路径</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="saveImgPath">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>300</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border: 1px solid #1c7ed6;
+border-radius: 4px;
+background: white;</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="maxLength">
+               <number>999999999</number>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="readOnly">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="saveImgPathBtn">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>选择</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_17">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="IsSaveImg">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>是否保存</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QFrame" name="frame_3">
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QLabel" name="label_29">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>运行时间</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="setRuntime">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>28</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QSpinBox{
+	border: 1px solid #1c7ed6;
+	border-radius: 2px;
+	background-color: white;
+}
+
+QSpinBox::up-button{
+	subcontrol-origin: border;
+	subcontrol-position: right;
+	width: 20px;
+	height: 20px;
+	
+	background-image: url(:/ico/hmi/add_right.png);
+}
+
+QSpinBox::up-button:hover{
+	
+	background-image: url(:/ico/hmi/add_right(1).png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin: border;
+	subcontrol-position: left;
+	width: 20px;
+	height: 20px;
+
+	background-image: url(:/ico/hmi/add_left.png);
+}
+
+QSpinBox::down-button:hover{
+	
+	background-image: url(:/ico/hmi/add_left(1).png);
+}</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="maximum">
+               <number>255</number>
+              </property>
+              <property name="value">
+               <number>10</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_19">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_11">
+            <item>
+             <widget class="QLabel" name="label_52">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>语言选择</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>29</height>
+               </size>
+              </property>
+              <property name="baseSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background: white;</string>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>16</width>
+                <height>16</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_13">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
+       <string>工作日志</string>
+      </attribute>
+      <widget class="QWidget" name="verticalLayoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>981</width>
+         <height>551</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4"/>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+   <item row="0" column="0" rowspan="2">
+    <widget class="QWidget" name="peiFang" native="true">
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <item>
+       <widget class="QTreeWidget" name="treeWidget">
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(220, 220, 220);
+QTreeWidget::item
+{
+	height: 30px;
+}</string>
+        </property>
+        <column>
+         <property name="text">
+          <string>配方</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>配方名称：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+	border: 1px solid #1c7ed6;
+	border-radius: 4px;
+	background: white;
+}
+
+QLineEdit:hover{
+	border-color: #74b816;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="loadBtn">
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#loadBtn{
+	min-width: 256px;
+	min-height: 40px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#loadBtn:hover{	
+	background-color: gray;
+}</string>
+        </property>
+        <property name="text">
+         <string>加载</string>
+        </property>
+        <property name="icon">
+         <iconset resource="ico.qrc">
+          <normaloff>:/ico/saveas.png</normaloff>:/ico/saveas.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="newBtn">
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#newBtn{
+	min-width: 256px;
+	min-height: 40px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#newBtn:hover{	
+	background-color: gray;
+}</string>
+        </property>
+        <property name="text">
+         <string>新建</string>
+        </property>
+        <property name="icon">
+         <iconset resource="ico.qrc">
+          <normaloff>:/ico/new.png</normaloff>:/ico/new.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="saveBtn">
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#saveBtn{
+	min-width: 256px;
+	min-height: 40px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#saveBtn:hover{	
+	background-color: gray;
+}</string>
+        </property>
+        <property name="text">
+         <string>保存</string>
+        </property>
+        <property name="icon">
+         <iconset resource="ico.qrc">
+          <normaloff>:/ico/saveas1.png</normaloff>:/ico/saveas1.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="delBtn">
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#delBtn{
+	min-width: 256px;
+	min-height: 40px;
+	background: #adb5bd;
+	border-radius: 4px;
+}
+
+QPushButton#delBtn:hover{	
+	background-color: rgb(170, 0, 0);
+}</string>
+        </property>
+        <property name="text">
+         <string>删除</string>
+        </property>
+        <property name="icon">
+         <iconset resource="ico.qrc">
+          <normaloff>:/ico/cancel1.png</normaloff>:/ico/cancel1.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>UnitSpainBox</class>
+   <extends>QSpinBox</extends>
+   <header location="global">unitspainbox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="ico.qrc"/>
+ </resources>
+ <connections/>
+</ui>

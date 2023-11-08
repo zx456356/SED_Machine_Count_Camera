@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translation>
+    <language name="中文">
+        <login desc="用户登入"/>
+        <mainWin desc="主界面"/>
+    </language>
+    <language name="English">
+        <login desc="User Login"/>
+        <mainWin desc="Main Window"/>
+    </language>
+</translation>
